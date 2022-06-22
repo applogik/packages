@@ -1,3 +1,7 @@
+## 0.3.4
+
+* Fixes name parameter not specified for `io.dart`.
+
 ## 0.3.3+1
 
 * Fixes `lastModified` unimplemented error description.

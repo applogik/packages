@@ -28,6 +28,7 @@ class XFile extends XFileBase {
         _file = File(path),
         _bytes = null,
         _lastModified = lastModified,
+        _name = name,
         super(path);
 
   /// Construct an CrossFile from its data
@@ -43,6 +44,7 @@ class XFile extends XFileBase {
         _file = File(path ?? ''),
         _length = length,
         _lastModified = lastModified,
+        _name = name,
         super(path) {
     if (length == null) {
       _length = bytes.length;
@@ -51,6 +53,7 @@ class XFile extends XFileBase {
 
   final File _file;
   final String? _mimeType;
+  final String? _name;
   final DateTime? _lastModified;
   int? _length;
 
@@ -82,7 +85,7 @@ class XFile extends XFileBase {
   String get path => _file.path;
 
   @override
-  String get name => _file.path.split(Platform.pathSeparator).last;
+  String get name =>_name ?? _file.path.split(Platform.pathSeparator).last;
 
   @override
   Future<int> length() {
